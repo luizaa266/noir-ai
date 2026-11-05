@@ -1,0 +1,8 @@
+{
+  "appId": "com.noirai.assistant",
+  "appName": "NOIR AI",
+  "webDir": "public",
+  "server": {
+    "androidScheme": "https"
+  }
+}
