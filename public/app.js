@@ -80,6 +80,33 @@ async function sendMessage(text) {
   busy = true;
   sendButton.disabled = true;
   const typing = addMessage("assistant", "NOIR está pensando…", "typing");
+        if (true) {
+        await new Promise(resolve => setTimeout(resolve, 500));
+        const lower = content.toLowerCase();
+        let answer = "Entendi! Estou no modo de demonstração da NOIR AI. Ainda estou evoluindo, mas posso conversar, explicar ideias e ajudar com projetos.";
+
+        if (lower.includes("oi") || lower.includes("olá")) {
+          answer = "Olá! 🖤 Eu sou a NOIR AI. É um prazer conversar com você! Como posso ajudar hoje?";
+        } else if (lower.includes("quem é você") || lower.includes("apresente")) {
+          answer = "Sou a NOIR AI, uma inteligência artificial em desenvolvimento, criada para conversar, ajudar, explicar assuntos e explorar ideias. 🖤";
+        } else if (lower.includes("ajuda")) {
+          answer = "Claro! Posso ajudar com estudos, ideias, textos, organização e criatividade. O que vamos fazer hoje?";
+        }
+
+        typing.remove();
+        messages.push({ role: "assistant", content: answer });
+        addMessage("assistant", answer);
+        saveCurrent();
+
+
+busy = false;
+sendButton.disabled = false;
+textarea.focus();        
+        
+          
+          
+          return;
+        }
   try {
     const response = await fetch("/api/chat", {
       method: "POST",
