@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111114">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icons/noir-192.svg" type="image/svg+xml">
+  <title>NOIR AI — seu espaço de ideias</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><div class="brand-mark">N</div><span>NOIR<span class="muted"> AI</span></span></div>
+      <button class="new-chat" id="newChat"><span>＋</span> Nova conversa</button>
+      <div class="side-label">RECENTES</div>
+      <div id="history" class="history"></div>
+      <div class="sidebar-bottom">
+        <div class="profile-dot">N</div>
+        <div><strong>NOIR AI</strong><small>Assistente pessoal</small></div>
+        <span class="status-dot"></span>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-button mobile-menu" id="menuButton" aria-label="Abrir menu">☰</button>
+        <div class="model-label"><span class="spark">✳</span> NOIR <span class="model-muted">· padrão</span></div>
+        <div class="top-actions">
+          <button class="install-button" id="installButton" hidden>＋ Instalar</button>
+          <button class="icon-button" id="clearButton" title="Limpar conversa" aria-label="Limpar conversa">↺</button>
+        </div>
+      </header>
+
+      <section class="conversation" id="conversation">
+        <div class="welcome" id="welcome">
+          <div class="welcome-symbol">✳</div>
+          <p class="eyebrow">UM ESPAÇO PARA PENSAR</p>
+          <h1>Por onde começamos?</h1>
+          <p class="welcome-copy">Ideias, dúvidas, projetos ou só uma boa conversa.<br>Estou aqui para ajudar.</p>
+          <div class="suggestions">
+            <button class="suggestion" data-prompt="Me ajude a ter ideias para um projeto criativo."><span>✧</span><b>Explorar ideias</b><small>Comece algo novo</small></button>
+            <button class="suggestion" data-prompt="Explique um assunto complicado de um jeito simples."><span>⌘</span><b>Aprender algo</b><small>Entenda passo a passo</small></button>
+            <button class="suggestion" data-prompt="Me ajude a organizar minhas tarefas da semana."><span>▤</span><b>Organizar planos</b><small>Coloque tudo em ordem</small></button>
+            <button class="suggestion" data-prompt="Me dê sugestões para escrever uma história interessante."><span>✎</span><b>Criar alguma coisa</b><small>Transforme ideias em texto</small></button>
+          </div>
+        </div>
+        <div id="messages" class="messages" aria-live="polite"></div>
+      </section>
+
+      <footer class="composer-wrap">
+        <form class="composer" id="chatForm">
+          <textarea id="prompt" rows="1" placeholder="Converse com o NOIR..." aria-label="Sua mensagem"></textarea>
+          <div class="composer-tools">
+            <span class="hint">NOIR pode cometer erros. Confira informações importantes.</span>
+            <button class="send-button" id="sendButton" type="submit" aria-label="Enviar mensagem">↑</button>
+          </div>
+        </form>
+        <p class="footer-note">Feito para explorar. Sua chave de API fica no servidor, nunca no navegador.</p>
+      </footer>
+    </main>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
